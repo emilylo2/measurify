@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script src="../static/weight.js"></script>
+<div class="row h3">
+    Weight Converter from Pounds to Kilograms (Drag and Drop height to learn)
+</div>
+<div class="row">
+    <div class="col-md-1"></div>
+        <div class="col-md-4 align-self-end">
+            <div class="row leftCol" >
+                <div class="tire-weight">
+                    10 Kilograms
+                </div>
+                <div class="img1">
+                    <img class="tire" src="https://pngimg.com/uploads/tire/tire_PNG64.png">
+                </div>
+                <div class="img2">
+                    <img class="scale" src="https://www.pngkey.com/png/full/131-1311847_measuring-scales-cartoon-electronics-computer-icons-electric-scale.png">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+                <div id="heightdrop" style="height: 500px;">
+                    <div id="blankheight">
+                    </div>
+                    <div id="height">
+                    </div>
+                </div>
+                <div id="height_label">
+                    <img class="scale" src="https://www.pngkey.com/png/full/131-1311847_measuring-scales-cartoon-electronics-computer-icons-electric-scale.png">
+                </div>
+        </div>
+        <div class="col-md-2">
+            <div style="height: 500px;">
+                <div style="height: 50px;"></div>
+                <div class="h5">
+                    Total Weight:
+                </div>
+                <div class="brinkweight">
+                    1 brick = 4 Pounds
+                </div>
+                <div id="heightcalculator" class="h5" style="height: 70px;">
+                </div>
+                <div id="heightmeasurements" class="h6">
+                    1 Pound = 0.45 Kilograms
+                </div>
+                <div id="heightmeasurements1" class="h6" style="height: 238px;">
+                    1 Kilogram = 2.2 Pounds
+                </div>
+                <div id="item">
+                </div>
+                <div class="headerd" id="item_label">
+                    <span class="pad">Drag the weight from here</span>
+                </div>
+            </div>
+        </div>
+        
+</div>
+
+{% endblock %}
