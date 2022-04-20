@@ -78,8 +78,11 @@ def height():
 
 @app.route('/weight')
 def weight():
-    return render_template('weight.html')  
+    return render_template('weight.html') 
 
+@app.route('/distance')
+def distance():
+    return render_template('distance.html')  
 
 @app.route('/temp')
 def temp():
