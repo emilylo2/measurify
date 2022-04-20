@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script src="../static/height.js"></script>
+    <div class="row h3">
+        Height Converter from Feet to Meters (Drag and Drop height to learn)
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+            <img src="https://media.gettyimages.com/photos/shaquille-oneal-of-the-los-angeles-lakers-poses-for-a-studio-portrait-picture-id1700180?k=20&m=1700180&s=612x612&w=0&h=QIskbm02QAZ-R3q9-EYKpCEJOCbU2FFY4pNDH978dtg=" style="height: 520px; width: 380px;" alt="image of Shaquille O Neil">
+        </div>
+        <div class="col-md-2">
+                <div id="heightdrop" style="height: 500px;">
+                    <div id="blankheight">
+                    </div>
+                    <div id="height">
+                    </div>
+                </div>
+                <div class="headerd" id="height_label">
+                    <span class="pad">Height</span>
+                </div>
+        </div>
+        <div class="col-md-2">
+            <div style="height: 500px;">
+                <div style="height: 50px;"></div>
+                <div class="h5">
+                    Total height:
+                </div>
+                <div id="heightcalculator" class="h5" style="height: 70px;">
+                </div>
+                <div id="heightmeasurements" class="h6">
+                    1 Feet = 0.3 Meters
+                </div>
+                <div id="heightmeasurements1" class="h6" style="height: 238px;">
+                    1 Meter = 3.2 Feet
+                </div>
+                <div id="feet">
+                </div>
+                <div class="headerd" id="feet_label">
+                    <span class="pad">Drag the weight from here</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+{% endblock %}
