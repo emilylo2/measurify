@@ -75,6 +75,21 @@ def homepage():
 def height():
     return render_template('height.html')   
 
+
+@app.route('/weight')
+def weight():
+    return render_template('weight.html')  
+
+
+@app.route('/temp')
+def temp():
+    return render_template('temp.html')  
+@app.route('/p1')
+def p1():
+    return render_template('p1.html') 
+
+ 
+
 @app.route('/quiz/<id>')
 def quiz_question(id=None):
     global quiz

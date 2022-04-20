@@ -377,3 +377,35 @@ textarea::-webkit-scrollbar-thumb{
 .ui-state-highlight1{
     background-color: rgb(205, 213, 255);
 }
+
+.scale{
+    width: 80%;
+}
+
+.tire{
+    width: 80%;
+   margin-bottom: -20px;
+}
+.img2  {
+    z-index: -10;
+}
+.tire-weight{
+    color: blue;
+    font-weight: bold;
+}
+.leftCol{
+    margin-top: 270px;
+}
+.brick{
+    width: 50%;
+}
+.center-row{
+    justify-content: center;
+}
+.pConvertbtn{
+    background-color: #3d23b3;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
