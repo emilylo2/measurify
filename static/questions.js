@@ -1,5 +1,6 @@
+
 $(document).ready(function(){
-    console.log(details)
+    console.log(quiz)
     createoptions()
 })
 
@@ -70,7 +71,12 @@ function checkcorrect(op,ans){
 
 function correct(){
     $("#message1").remove()
-    
+    newscore=quiz["quizscore"]+1
+    newdata={
+        "quizscore":newscore
+    }
+    console.log(newdata)
+    answer(newdata)
 
     let new_div = $("<div id='message1'>")
     let new_div1=$("<div class='correct'>You have the right answer</div>");
@@ -78,36 +84,62 @@ function correct(){
     nextquestion=parseInt(details["id"])+1;
     let new_button=$("<button class='button-6'>Next Question</button>")
 
+
     new_button.click(function(){
         taketo(nextquestion.toString())
     })
+    
 
     new_div.append(new_div1)
     new_div.append(new_button)
 
     $("#message").append(new_div);
-    
 
     
 }
 
 function incorrect(){
     $("#message1").remove()
-    $("#message").append("<div class='incorrect' id='message1'>Use this formula to get the right answer</div>");
+    newdata={
+        "quizscore":quiz["quizscore"]
+    }
+    answer(newdata)
+    
+    let new_div = $("<div id='message1'>")
+    let new_div1=$("<div class='incorrect'>You got the wrong answer</div>");
+
+    nextquestion=parseInt(details["id"])+1;
+    let new_button=$("<button class='button-6'>Next Question</button>")
+
+    newdata={
+        "quizscore":quiz["quizscore"]
+    }
+
+    new_button.click(function(){
+        taketo(nextquestion.toString())
+    })
+    
+
+    new_div.append(new_div1)
+    new_div.append(new_button)
+
+    $("#message").append(new_div);
 }
 
 function taketo(str){
     location.href = '/quiz/'+str;
 }
 
-function correctanswer(jsondata){
+function answer(newdata){
     $.ajax({
         type: "POST",
-        url: "correct_answer",                
+        url: "/answer",                
         dataType : "json",
         contentType: "application/json; charset=utf-8",
-        data : JSON.stringify(jsondata),
+        data : JSON.stringify(newdata),
         success: function(result){
+            quiz=result
+            $("#score").html((quiz["quizscore"]).toString()+"/4")
         },
         error: function(request, status, error){
             console.log("Error");

@@ -3,6 +3,7 @@
 {% block content %}
 <script>
     let details={{detail|tojson}}
+    let quiz={{quizs|tojson}}
 </script>
 <script src="../static/questions.js"></script>
 <div class="Container">
@@ -16,6 +17,7 @@
                 <div class="col-md-6 col-sm-12">
                     <img class="dimage" src={{detail.imglink}}>
                 </div>
+                <div class="col-md-2" id="score">{{quizs.quizscore}}/4</div>
             </div>       
         </div>
         <div class="col-md-12 col-sm-12">

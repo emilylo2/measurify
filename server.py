@@ -9,26 +9,30 @@ app = Flask(__name__)
 
 start = 0
 learnprogress=0
+
+quizscore=0
+
+
 quiz = [
     {
         "id": "1",
-        "question": "Pupin hall (office) is approximately 15 stories high, how many meters tall is it?",
-        "imglink": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Columbia_University_-_Department_of_Physics_%2848170362276%29.jpg/250px-Columbia_University_-_Department_of_Physics_%2848170362276%29.jpg",
-        "op1": "15",
-        "op2": "40",
-        "op3": "73",
-        "op4": "97",
-        "correct": "73"
+        "question": "If Micheal Jordan was 6.6 Feet tall, what was his height in meters?",
+        "imglink": "https://s.yimg.com/ny/api/res/1.2/TGNfajFSZVO2aKd_NxDFJw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQ1MA--/https://s.yimg.com/uu/api/res/1.2/4kyJgbRwvypORBkUJIZZ7Q--~B/aD05MDA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/hoops_hype_usa_today_sports_articles_974/43a74075a8f8f00a8554ef3b42f7c1c1",
+        "op1": "1.2",
+        "op2": "1.8",
+        "op3": "2",
+        "op4": "2.3",
+        "correct": "2"
     },
     {
         "id": "2",
-        "question": "Low Memorial Library (misc) is approximately 4 stories high, hom many meters tall is it?",
-        "imglink": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Low_Memorial_Library_Columbia_University_College_Walk_Court_Yard_05.jpg",
-        "op1": "13",
-        "op2": "24",
-        "op3": "35",
-        "op4": "46",
-        "correct": "24"
+        "question": "If Earth is 384472 Kilometers away from the moon, what is the distance in miles?",
+        "imglink": "https://nineplanets.org/wp-content/uploads/2020/09/Earth-moon-distance-384400km.jpg",
+        "op1": "238,900",
+        "op2": "280,000",
+        "op3": "190,000",
+        "op4": "320,000",
+        "correct":"238,900"
     },
     {
         "id": "3",
@@ -119,11 +123,15 @@ def temp():
 @app.route('/quiz/<id>')
 def quiz_question(id=None):
     global quiz
+    global quizscore
     for q in quiz:
-        print(q)
         if id==q["id"]:
             details=q
-    return render_template('quiz.html', detail=details) 
+    quizs={
+        "quizscore":quizscore
+    }
+    print(quizs)
+    return render_template('quiz.html', detail=details, quizs=quizs) 
 
 
  
@@ -143,6 +151,17 @@ def learn():
     }
 
     return jsonify(newstatus = news)
+
+@app.route('/answer',  methods=['GET', 'POST'])
+def answer():
+    global quizscore
+    json_data = request.get_json()
+    print(json_data) 
+    quizscore=json_data["quizscore"]
+    newq={
+        "quizscore":quizscore
+    }
+    return jsonify(quizs = newq)
 
 
 if __name__ == '__main__':
