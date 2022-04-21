@@ -1,7 +1,6 @@
 let item = [
     {
         "item": "Brick",
-        "link": "https://purepng.com/public/uploads/large/purepng.com-brickbuilding-materialbrickconstructionconcrete-materials-1421526461118aspkp.png",
         "weight": "4"
     }
 ]
@@ -17,13 +16,11 @@ function makeitem(item){
     $("#item_label").html("<span class='pad'>Drag the brick from here</span>")
     $.each(item, function(index,value){
         let new_div = $("<div>")
-        //$(new_div).addClass("border")
-        $(new_div).html("<img class='brick' src='"+ value.link + "'>")
+        $(new_div).addClass("border")
         $(new_div).draggable({
             cursor:"move",
             revert: true,
             start: function( event, ui ) {
-                //").html("<span class='pad'>Drop the weight here</span>")
                 $("#height_label").droppable({
                     activeClass: "ui-state-highlight",
                     disabled: false
@@ -64,9 +61,7 @@ function makeheight(height){
     $("#blankdiv").remove()
     $.each(height,function(index,value){
         let new_div = $("<div>")
-        // $(new_div).addClass("border")
-        // $(new_div).html(value)
-        $(new_div).html("<img class='brick' src='https://purepng.com/public/uploads/large/purepng.com-brickbuilding-materialbrickconstructionconcrete-materials-1421526461118aspkp.png'>")
+        $(new_div).addClass("border")
         $(new_div).draggable({
             cursor:"move",
             revert: true,

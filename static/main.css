@@ -330,6 +330,7 @@ textarea::-webkit-scrollbar-thumb{
     border-color: gray;
     padding: 10px 1px;
 }
+
 .headerd{
     font-weight: bold;
     font-size: medium;
