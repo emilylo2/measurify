@@ -64,8 +64,9 @@ function makeheight(height){
     $("#blankdiv").remove()
     $.each(height,function(index,value){
         let new_div = $("<div>")
-        $(new_div).addClass("border")
-        $(new_div).html(value)
+        // $(new_div).addClass("border")
+        // $(new_div).html(value)
+        $(new_div).html("<img class='brick' src='https://purepng.com/public/uploads/large/purepng.com-brickbuilding-materialbrickconstructionconcrete-materials-1421526461118aspkp.png'>")
         $(new_div).draggable({
             cursor:"move",
             revert: true,
