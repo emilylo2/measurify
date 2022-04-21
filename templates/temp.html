@@ -1,12 +1,14 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<script>
+    let news={{newstatus|tojson}}
+</script>
 <script src="../static/temp.js"></script>
 <div class="row h3">
     Learn About Temperature Conversion
 </div>
 <div class="row">
-    <div class="col-md-1"></div>
     <div class="col-md-6">
         <div class="video">
             <iframe width="500" height="400"src="https://www.youtube.com/embed/kfTbOYJcWH4"></iframe>
@@ -54,8 +56,10 @@
                 <button class="button-6 button-calc" onclick="getDegC();">Calculate</button>
             </div>
         </div>
-         </div>
-    </div>    
+    </div>
+    <div class="col-md-1" id="next"></div>    
+</div>
+<div id="prog" class="row">
 </div>
 
 {% endblock %}

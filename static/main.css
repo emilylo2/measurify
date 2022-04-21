@@ -379,6 +379,10 @@ textarea::-webkit-scrollbar-thumb{
     background-color: rgb(205, 213, 255);
 }
 
+.ui-progressbar-value{
+    background: #3d23b3;
+}
+
 .scale{
     width: 80%;
 }

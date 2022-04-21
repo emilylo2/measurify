@@ -1,6 +1,9 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<script>
+    let news={{newstatus|tojson}}
+</script>
 <script src="../static/weight.js"></script>
 <div class="row h3">
     Weight Converter from Pounds to Kilograms (Drag and Drop height to learn)
@@ -55,8 +58,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-1"></div>
-        
+        <div class="col-md-1" id="next"></div>
+</div>
+<div id="prog">
 </div>
 
 {% endblock %}

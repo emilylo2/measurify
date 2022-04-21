@@ -90,9 +90,54 @@ function makeheight(height){
     })
 }
 
+function makeprogressbar(news){
+    if (news["start"]==1){
+        //let statusbar=$("<div id='statusbar'></div>")
+        $("#prog").progressbar({
+            value: news["progress"]
+        });
+        let next_button=$("<button id='nextpage' class='button-6'>Next</button>")
+        next_button.click(function(){
+            newstatus={
+                "start":news["start"],
+                "progress":news["progress"]
+            }
+            gotoweight(newstatus)
+        })
+        $("#next").append(next_button)
+    } else {
+        $("#prog").html("")
+        $("#next").html("")
+    }
+}
+
+function gotoweight(newstatus){
+    console.log(newstatus)
+    $.ajax({
+        type: "POST",
+        url: "/learn",                
+        dataType : "json",
+        contentType: "application/json; charset=utf-8",
+        data : JSON.stringify(newstatus),
+        success: function(result){
+            location.href = '/weight';
+            newstatus=result
+        },
+    
+        error: function(request, status, error){
+            console.log("Error");
+            console.log(request)
+            console.log(status)
+            console.log(error)
+        }
+    });
+}
+
 $(document).ready(function(){
+    console.log(news)
     makefeet(feet)
     makeheight(height)
+    makeprogressbar(news)
     $("#height_label").droppable({
         drop: function(event,ui){
             counter=counter+1

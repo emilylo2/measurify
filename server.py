@@ -7,7 +7,8 @@ import copy
 app = Flask(__name__)
 
 
-current_id = 10
+start = 0
+learnprogress=0
 quiz = [
     {
         "id": "1",
@@ -73,20 +74,44 @@ def homepage():
 
 @app.route('/height')
 def height():
-    return render_template('height.html')   
+    global start
+    global learnprogress
+    news={
+        "start":start,
+        "progress":learnprogress
+    }
+    return render_template('height.html', newstatus=news)   
 
 
 @app.route('/weight')
 def weight():
-    return render_template('weight.html') 
+    global start
+    global learnprogress
+    news={
+        "start":start,
+        "progress":learnprogress
+    }
+    return render_template('weight.html', newstatus=news) 
 
 @app.route('/distance')
 def distance():
-    return render_template('distance.html')  
+    global start
+    global learnprogress
+    news={
+        "start":start,
+        "progress":learnprogress
+    }
+    return render_template('distance.html', newstatus=news)  
 
 @app.route('/temp')
 def temp():
-    return render_template('temp.html')  
+    global start
+    global learnprogress
+    news={
+        "start":start,
+        "progress":learnprogress
+    }
+    return render_template('temp.html', newstatus=news)  
 
 
  
@@ -102,7 +127,22 @@ def quiz_question(id=None):
 
 
  
+@app.route('/learn',  methods=['GET', 'POST'])
+def learn():
+    global start
+    global learnprogress
 
+    json_data = request.get_json() 
+    start=json_data["start"]
+    print(json_data)
+    if start==1:
+        learnprogress=json_data["progress"]+25
+    news={
+        "start":start,
+        "progress":learnprogress
+    }
+
+    return jsonify(newstatus = news)
 
 
 if __name__ == '__main__':

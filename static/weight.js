@@ -94,9 +94,54 @@ function makeheight(height){
     })
 }
 
+function makeprogressbar(news){
+    if (news["start"]==1){
+        //let statusbar=$("<div id='statusbar'></div>")
+        $("#prog").progressbar({
+            value: news["progress"]
+        });
+        let next_button=$("<button id='nextpage' class='button-6'>Next</button>")
+        next_button.click(function(){
+            newstatus={
+                "start":news["start"],
+                "progress":news["progress"]
+            }
+            gotodistance(newstatus)
+        })
+        $("#next").append(next_button)
+    } else {
+        $("#prog").html("")
+        $("#next").html("")
+    }
+}
+
+function gotodistance(newstatus){
+    console.log(newstatus)
+    $.ajax({
+        type: "POST",
+        url: "/learn",                
+        dataType : "json",
+        contentType: "application/json; charset=utf-8",
+        data : JSON.stringify(newstatus),
+        success: function(result){
+            location.href = '/distance';
+            newstatus=result
+        },
+    
+        error: function(request, status, error){
+            console.log("Error");
+            console.log(request)
+            console.log(status)
+            console.log(error)
+        }
+    });
+}
+
 $(document).ready(function(){
+    console.log(news)
     makeitem(item)
     makeheight(height)
+    makeprogressbar(news)
     $("#height_label").droppable({
         drop: function(event,ui){
             counter=counter+1

@@ -16,8 +16,31 @@ function getDegC(){
     $(".degC2").append(new_div);
 }
 
+function makeprogressbar(news){
+    if (news["start"]==1){
+        //let statusbar=$("<div id='statusbar'></div>")
+        $("#prog").progressbar({
+            value: news["progress"]
+        });
+        let next_button=$("<button id='nextpage' class='button-6'>Take Quiz</button>")
+        next_button.click(function(){
+            newstatus={
+                "start":news["start"],
+                "progress":news["progress"]
+            }
+            location.href = '/quiz/1';
+        })
+        $("#next").append(next_button)
+    } else {
+        $("#prog").html("")
+        $("#next").html("")
+    }
+}
+
+
 
 $(document).ready(function(){
+    makeprogressbar(news)
     $("#degC").focus(function(){
         $("#degC").keypress(function(e){
             if(e.which == 13){
