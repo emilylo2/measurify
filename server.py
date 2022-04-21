@@ -87,9 +87,7 @@ def distance():
 @app.route('/temp')
 def temp():
     return render_template('temp.html')  
-@app.route('/p1')
-def p1():
-    return render_template('p1.html') 
+
 
  
 

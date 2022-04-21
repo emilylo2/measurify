@@ -125,7 +125,7 @@
 }
 
 .button-6 {
-    width: 170px;
+    width: 190px;
     align-items: center;
     background-color: #3d23b3;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -408,4 +408,19 @@ textarea::-webkit-scrollbar-thumb{
     color: white;
     cursor: pointer;
 }
+.sub-label{
+    size: 20px;
+}
 
+.title-pic{
+    height:300px;
+    margin-bottom: 20px;
+}
+
+.button-calc{
+    margin: -10px;
+}
+.deg{
+    color: blue;
+    font-weight: bold;
+}
