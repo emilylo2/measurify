@@ -133,6 +133,11 @@ function incorrect(){
     
     $("#message").append(new_div);
     openReview(details["topic"])
+
+    console.log(nextquestion)
+    if(nextquestion==5){
+        location.href = "/end";
+    }
 }
 
 function taketo(str){
