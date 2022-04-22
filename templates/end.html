@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script>
+   
+    let quiz={{quizs|tojson}}
+</script>
+<script src="../static/homepage.js"></script>
+<div class="Container headtext">
+    <div class="h2 row center-row">
+        You scored {{quizs.quizscore}} /4 on the quiz!
+    </div>
+    <div class="row center-row">
+        Review material or take the quiz again!
+    </div>
+    <div class="row center-row">
+        <div class="col-md-2"></div>
+        <div class="col-md-4 center-row">
+            <div class="sub-label">
+                Learn Conversions
+            </div>
+            <button class="button-6" id="learnall">Learn All</button>
+            <button class="button-6" id="height">Height</button>
+            <button class="button-6" id="weight">Weight</button>
+            <button class="button-6" id="temp">Temperature</button>
+            <button class="button-6" id="distance">Distance</button>
+        </div>
+        <div class="col-md-4">
+            <div class="sub-label">
+                Test Your Knowledge
+            </div>
+            <button class="button-6" onclick="location.href='/quiz/1'">Quiz</button>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
