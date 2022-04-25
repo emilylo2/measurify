@@ -93,9 +93,21 @@ function makeheight(height){
 function makeprogressbar(news){
     if (news["start"]==1){
         //let statusbar=$("<div id='statusbar'></div>")
+        let new_div=$("<div class='col-md-2' id='progreport'></div>")
+        let new_span=$("<span class='progrepclass'>Progress: "+news["progress"]+"%</span>")
+        new_div.append(new_span)
+
+        let new_div1=$("<div class='col-md-8'></div>")
+        let new_prog=$("<div id='prog'></div>")
+        new_div1.append(new_prog)
+
+        $("#progrow").append(new_div)
+        $("#progrow").append(new_div1)
+
         $("#prog").progressbar({
             value: news["progress"]
         });
+
         let next_button=$("<button id='nextpage' class='button-6'>Next</button>")
         next_button.click(function(){
             newstatus={
@@ -106,6 +118,7 @@ function makeprogressbar(news){
         })
         $("#next").append(next_button)
     } else {
+        $("#progrow").html("")
         $("#prog").html("")
         $("#next").html("")
     }

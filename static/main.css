@@ -440,3 +440,9 @@ textarea::-webkit-scrollbar-thumb{
     color: blue;
     font-weight: bold;
 }
+.progrepclass{
+    color: #3d23b3; font-weight: bold; margin-left: 20%;
+}
+#prog{
+    border: lightblue solid 3px !important; 
+}
