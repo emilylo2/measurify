@@ -378,9 +378,20 @@ textarea::-webkit-scrollbar-thumb{
 .ui-state-highlight1{
     background-color: rgb(205, 213, 255);
 }
-
+#progressbar.ui-progressbar-value{
+    background: #503dae;
+    border: #1f1841 solid 10px;
+    margin-left: -1px;
+}
+.ui-progressbar{
+    margin-top: 2px;
+    height: 20px;
+    border: #1f1841 solid 2px;
+}
 .ui-progressbar-value{
-    background: #3d23b3;
+    background: #1f1841;
+    border: #1f1841 solid 10px;
+    margin-left: -1px;
 }
 
 .scale{
