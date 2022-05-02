@@ -93,7 +93,7 @@ function newquiz(newdata){
         data : JSON.stringify(newdata),
         success: function(result){
             quiz=result
-            location.href = '/quiz/'+ toString(result["question"])
+            location.href = '/quiz/1'
             $("#score").html((quiz["quizs"]["quizscore"]).toString()+"/4")
         },
         error: function(request, status, error){
