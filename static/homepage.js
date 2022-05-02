@@ -36,10 +36,12 @@ $(document).ready(function(){
         }
         links(start,'/distance')
     })
-    $("#quiz").click(function(){
+    $("#quizbutton").click(function(){
         let quizscore={
-            "quizscore":0
+            "quizscore":0,
+            "question":0
         }
+        console.log(quizscore)
         newquiz(quizscore)
     })
     
@@ -90,6 +92,7 @@ function startlearnall(start){
 }
 
 function newquiz(newdata){
+    console.log(newdata)
     $.ajax({
         type: "POST",
         url: "/answer",                
@@ -98,7 +101,8 @@ function newquiz(newdata){
         data : JSON.stringify(newdata),
         success: function(result){
             quiz=result
-            location.href = '/quiz/1'
+            console.log('/quiz/'+result["quizs"]["question"])
+            location.href = '/quiz/'+result["quizs"]["question"]
             $("#score").html((quiz["quizs"]["quizscore"]).toString()+"/4")
         },
         error: function(request, status, error){

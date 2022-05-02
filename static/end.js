@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $("#learnall1").click(function(){
+    $("#learnall").click(function(){
         let start={
             "start":1,
             "progress":0
@@ -7,42 +7,50 @@ $(document).ready(function(){
         console.log("yes")
         startlearnall(start)
     })
-    $("#height1").click(function(){
+    
+    $("#height").click(function(){
         let start={
             "start":0,
             "progress":0
         }
         links(start,'/height')
     })
-    $("#weight1").click(function(){
+    $("#weight").click(function(){
         let start={
             "start":0,
             "progress":0
         }
         links(start,'/weight')
     })
-    $("#temp1").click(function(){
+    $("#temp").click(function(){
         let start={
             "start":0,
             "progress":0
         }
         links(start,'/temp')
     })
-    $("#distance1").click(function(){
+    $("#distance").click(function(){
         let start={
             "start":0,
             "progress":0
         }
         links(start,'/distance')
     })
-    $("#quizbutton1").click(function(){
+    $("#quizbutton").click(function(){
         let quizscore={
             "quizscore":0,
             "question":0
         }
+        console.log(quizscore)
+        //location.href = '/quiz/1'
+        //console.log(quizscore)
         newquiz(quizscore)
     })
+    
+
+
 })
+
 function links(start,ext){
     $.ajax({
         type: "POST",
@@ -63,6 +71,7 @@ function links(start,ext){
         }
     });
 }
+
 function startlearnall(start){
     $.ajax({
         type: "POST",
@@ -85,6 +94,7 @@ function startlearnall(start){
 }
 
 function newquiz(newdata){
+    console.log(newdata)
     $.ajax({
         type: "POST",
         url: "/answer",                
@@ -93,7 +103,7 @@ function newquiz(newdata){
         data : JSON.stringify(newdata),
         success: function(result){
             quiz=result
-            location.href = '/quiz/'+ toString(result["question"])
+            location.href = '/quiz/'+result["quizs"]["question"]
             $("#score").html((quiz["quizs"]["quizscore"]).toString()+"/4")
         },
         error: function(request, status, error){

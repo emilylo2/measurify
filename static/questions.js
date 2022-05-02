@@ -74,7 +74,8 @@ function correct(){
     $(".review").empty()
     newscore=quiz["quizscore"]+1
     newdata={
-        "quizscore":newscore
+        "quizscore":newscore,
+        "question":quiz["question"]
     }
     console.log(newdata)
     answer(newdata)
@@ -107,7 +108,8 @@ function incorrect(){
     $(".review").empty()
     let review_btn = $("<button id='review' class='button-6'>Review</button>")
     newdata={
-        "quizscore":quiz["quizscore"]
+        "quizscore":quiz["quizscore"],
+        "question":quiz["question"]
     }
     answer(newdata)
     
@@ -117,10 +119,6 @@ function incorrect(){
     nextquestion=parseInt(details["id"])+1;
 
     let new_button=$("<button class='button-6'>Next Question</button>")
-
-    newdata={
-        "quizscore":quiz["quizscore"]
-    }
 
     new_button.click(function(){
         taketo(nextquestion.toString())
@@ -136,6 +134,11 @@ function incorrect(){
 
     console.log(nextquestion)
     if(nextquestion==5){
+        newdata={
+            "quizscore":quiz["quizscore"],
+            "question":0
+        }
+        answer(newdata)
         location.href = "/end";
     }
 }
@@ -152,11 +155,12 @@ function openReview(page){
         }
         let pageRoute = "/"+page
         console.log(pageRoute)
-        links(start,pageRoute)
+        newwindowlinks(start,pageRoute)
     })
 }
 
 function answer(newdata){
+    console.log(newdata)
     $.ajax({
         type: "POST",
         url: "/answer",                
@@ -167,6 +171,27 @@ function answer(newdata){
             quiz=result
             $("#score").html((quiz["quizs"]["quizscore"]).toString()+"/4")
         },
+        error: function(request, status, error){
+            console.log("Error");
+            console.log(request)
+            console.log(status)
+            console.log(error)
+        }
+    });
+}
+
+function newwindowlinks(start,ext){
+    $.ajax({
+        type: "POST",
+        url: "/learn",                
+        dataType : "json",
+        contentType: "application/json; charset=utf-8",
+        data : JSON.stringify(start),
+        success: function(result){
+            window.open(ext);
+            newstatus=result
+        },
+    
         error: function(request, status, error){
             console.log("Error");
             console.log(request)

@@ -5,7 +5,7 @@
    
     let quiz={{quizs|tojson}}
 </script>
-<script src="../static/homepage.js"></script>
+<script src="../static/end.js"></script>
 <div class="Container headtext">
     <div class="h2 row center-row">
         You scored {{quizs.quizscore}} /4 on the quiz!
@@ -29,7 +29,7 @@
             <div class="sub-label">
                 Test Your Knowledge
             </div>
-            <button class="button-6" onclick="location.href='/quiz/1'">Quiz</button>
+            <button class="button-6" id="quizbutton">Quiz</button>
         </div>
     </div>
 

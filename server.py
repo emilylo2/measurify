@@ -11,6 +11,7 @@ start = 0
 learnprogress=0
 
 quizscore=0
+quest=0
 
 
 quiz = [
@@ -114,8 +115,10 @@ def temp():
 @app.route('/end')
 def end():
     global quizscore
+    global quest
     quizs={
-        "quizscore":quizscore
+        "quizscore":quizscore,
+        "question": quest
     }
     return render_template('end.html', quizs=quizs)  
 
@@ -126,13 +129,14 @@ def end():
 def quiz_question(id=None):
     global quiz
     global quizscore
+    global quest
     for q in quiz:
         if id==q["id"]:
             details=q
     quizs={
-        "quizscore":quizscore
+        "quizscore":quizscore,
+        "question": quest
     }
-    print(quizs)
     return render_template('quiz.html', detail=details, quizs=quizs) 
 
 
@@ -144,7 +148,6 @@ def learn():
 
     json_data = request.get_json() 
     start=json_data["start"]
-    print(json_data)
     if start==1:
         learnprogress=json_data["progress"]+25
     news={
@@ -157,11 +160,15 @@ def learn():
 @app.route('/answer',  methods=['GET', 'POST'])
 def answer():
     global quizscore
+    global quest
     json_data = request.get_json()
-    print(json_data) 
+    print(json_data)
     quizscore=json_data["quizscore"]
+    quest=int(json_data["question"])+1
+    print(quest)
     newq={
-        "quizscore":quizscore
+        "quizscore":quizscore,
+        "question":quest
     }
     return jsonify(quizs = newq)
 
