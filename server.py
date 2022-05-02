@@ -39,14 +39,14 @@ quiz = [
     },
     {
         "id": "3",
-        "question": "Approximately what temperature weather is the polar bear in?",
+        "question": "Approximately how much does a male polar bear weigh?",
         "imglink": "https://i.guim.co.uk/img/media/bd0ae53a32f1d444fcf2a51181a7c895af2d012e/0_119_5184_3110/master/5184.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=aba53ba9ba4175cf9cb51887b1f41ebc",
-        "op1": "10C",
-        "op2": "14F",
-        "op3": "5C",
-        "op4": "50F",
-        "correct": "14F",
-        "topic": "temp"
+        "op1": "900lbs",
+        "op2": "900kg",
+        "op3": "100lbs",
+        "op4": "100KG",
+        "correct": "900lbs",
+        "topic": "weight"
     },
     {
         "id": "4",

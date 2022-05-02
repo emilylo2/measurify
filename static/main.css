@@ -457,3 +457,7 @@ textarea::-webkit-scrollbar-thumb{
 .spceCorrection{
     margin-top: -50px;
 }
+
+.move-down{
+    margin-top: 20%;
+}
