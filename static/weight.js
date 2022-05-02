@@ -22,7 +22,7 @@ function makeitem(item){
             revert: true,
             start: function( event, ui ) {
                 $("#height_label").droppable({
-                    activeClass: "ui-state-highlight",
+                    activeClass: "ui-state-highlightF",
                     disabled: false
                 })
                 $("#heightdrop").droppable({
@@ -68,7 +68,7 @@ function makeheight(height){
             start: function( event, ui ) {
                 $("#item_label").html("<span class='pad'>Remove the weight here</span>")
                 $("#item_label").droppable({
-                    activeClass: "ui-state-highlight",
+                    activeClass: "ui-state-highlightF",
                     disabled: false,
                 })
                 $("#height_label").droppable({

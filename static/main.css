@@ -365,8 +365,13 @@ textarea::-webkit-scrollbar-thumb{
     background-color: rgb(94, 116, 225);
     color: black;
 }
+
+
 .ui-no-colour{
     background-color: rgb(255, 153, 153);
+}
+.ui-no-colourKG{
+    background-color: rgb(161, 153, 255);
 }
 .ui-droppable-hover {
     background: rgb(130, 119, 255);
@@ -377,6 +382,9 @@ textarea::-webkit-scrollbar-thumb{
 }
 .ui-state-highlight1{
     background-color: rgb(205, 213, 255);
+}
+.ui-state-highlight1KG{
+    background-color: rgb(167, 222, 223);
 }
 #progressbar.ui-progressbar-value{
     background: #503dae;
@@ -395,12 +403,12 @@ textarea::-webkit-scrollbar-thumb{
 }
 
 .scale{
-    width: 80%;
+    width: 60%;
 }
 
 .tire{
-    width: 80%;
-   margin-bottom: -20px;
+    width: 60%;
+   margin-bottom: -10px;
 }
 .img2  {
     z-index: -10;
@@ -441,8 +449,11 @@ textarea::-webkit-scrollbar-thumb{
     font-weight: bold;
 }
 .progrepclass{
-    color: #3d23b3; font-weight: bold; margin-left: 20%;
+    color: #3d23b3; font-weight: bold; margin-left: 10%;
 }
 #prog{
     border: lightblue solid 3px !important; 
+}
+.spceCorrection{
+    margin-top: -50px;
 }

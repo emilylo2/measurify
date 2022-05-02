@@ -140,7 +140,9 @@ def learn():
     json_data = request.get_json() 
     start=json_data["start"]
     if start==1:
-        learnprogress=json_data["progress"]+25
+        learnprogress=json_data["progress"]+33
+        if learnprogress == 99:
+            learnprogress = 100
     news={
         "start":start,
         "progress":learnprogress

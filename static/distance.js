@@ -37,7 +37,7 @@ function makeprogressbar(news){
                 "start":news["start"],
                 "progress":news["progress"]
             }
-            gototemp(newstatus)
+            gotoquiz(newstatus)
         })
         $("#next").append(next_button)
     } else {
@@ -46,7 +46,7 @@ function makeprogressbar(news){
     }
 }
 
-function gototemp(newstatus){
+function gotoquiz(newstatus){
     console.log(newstatus)
     $.ajax({
         type: "POST",
@@ -55,7 +55,7 @@ function gototemp(newstatus){
         contentType: "application/json; charset=utf-8",
         data : JSON.stringify(newstatus),
         success: function(result){
-            location.href = '/temp';
+            location.href = '/quiz/1';
             newstatus=result
         },
     
