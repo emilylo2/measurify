@@ -102,15 +102,6 @@ def distance():
     }
     return render_template('distance.html', newstatus=news)  
 
-@app.route('/temp')
-def temp():
-    global start
-    global learnprogress
-    news={
-        "start":start,
-        "progress":learnprogress
-    }
-    return render_template('temp.html', newstatus=news)  
 
 @app.route('/end')
 def end():
