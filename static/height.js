@@ -213,8 +213,14 @@ $(document).ready(function(){
     $("#heightdrop").droppable({
         drop: function(event,ui){
             counter=counter+1
+            let strcounter
             if (counter<=total){
-                let strcounter=counter.toString()+" Feet"
+                if(counter ==1){
+                   strcounter= "1 Foot"
+                }
+                else{
+                    strcounter=counter.toString()+" Feet"
+                }
                 height.unshift(strcounter)
                 makeheight(height)
             }

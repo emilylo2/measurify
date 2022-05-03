@@ -1,3 +1,4 @@
+
 let item = [
     {
         "item": "Brick",
@@ -57,11 +58,17 @@ function makeheight(height){
     heightcalcultor(height.length)
     $("#height").empty()
     $("#blankheight").html("")
-    //$("#height_label").html("<span class='pad'>Height</span>")
     $("#blankdiv").remove()
+
+    $("#meterheight").empty()
+    $("#blankheight1").html("")
+    $("#height_label1").html("<span class='pad'>Height in Meters</span>")
+    $("#blankdiv1").remove()
+
     $.each(height,function(index,value){
         let new_div = $("<div>")
         $(new_div).addClass("border")
+        $(new_div).html(value)
         $(new_div).draggable({
             cursor:"move",
             revert: true,
@@ -90,8 +97,47 @@ function makeheight(height){
         $("#blankdiv").remove()
         $("#blankheight").append(new_blank_div);
         $("#height").append(new_div)
+    })
+
+    $.each(height,function(index,value){
+        spt=value.split("")
+        meterv=parseInt(spt[0])*1.8
+        console.log(meterv)
+        value1=meterv+" Kilograms"
+        let new_div1 = $("<div>")
+        $(new_div1).addClass("border")
+        $(new_div1).html(value1)
+        $(new_div1).draggable({
+            cursor:"move",
+            revert: true,
+            start: function( event, ui ) {
+                $("#item_label").html("<span class='pad'>Remove the height here</span>")
+                $("#item_label").droppable({
+                    activeClass: "ui-state-highlight",
+                    disabled: false,
+                })
+                $("#height_label").droppable({
+                    activeClass: "ui-no-colour",
+                    disabled: true
+                })
+                $("#heightdrop").droppable({
+                    activeClass: "ui-no-colour",
+                    disabled: true
+                })
+           }
+        })
+        $(new_div1).css("cursor","move")
+        let blankheight=((total-height.length)*66)+38;
+        let strbh="height: "+blankheight.toString() + "px"
+        let divstring="<div id='blankdiv1' style='"+strbh+"'></div>"
+
+        let new_blank_div1=$(divstring)
+        $("#blankdiv1").remove()
+        $("#blankheight1").append(new_blank_div1);
+        $("#meterheight").append(new_div1)
         
     })
+
 }
 
 function makeprogressbar(news){
@@ -167,7 +213,13 @@ $(document).ready(function(){
         drop: function(event,ui){
             counter=counter+1
             if (counter<=total){
-                let strcounter=counter.toString()+" Pounds"
+                let strcounter
+                if(counter==1){
+                    strcounter="1 Pound"
+                }
+                else{
+                    strcounter=counter.toString()+" Pounds"
+                }
                 height.unshift(strcounter)
                 makeheight(height)
             }

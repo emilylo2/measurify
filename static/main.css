@@ -403,12 +403,17 @@ textarea::-webkit-scrollbar-thumb{
 }
 
 .scale{
-    width: 60%;
+    width: 100%;
+  
+}
+.scale1{
+    width: 116%;
+    margin-bottom: -80px;
 }
 
 .tire{
-    width: 60%;
-   margin-bottom: -10px;
+    width: 110%;
+   margin-bottom: -30px;
 }
 .img2  {
     z-index: -10;
