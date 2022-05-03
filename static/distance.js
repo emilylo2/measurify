@@ -1,4 +1,5 @@
 let pvalue=0
+let previousvalue=0
 $(document).ready(function() {
     makeprogressbar(news)
     updateprogress(pvalue)
@@ -31,7 +32,7 @@ function makeprogressbar(news){
         $("#prog").progressbar({
             value: news["progress"]
         });
-        let next_button=$("<button id='nextpage' class='button-6'>Next</button>")
+        let next_button=$("<button id='nextpage' class='button-6'>Take Quiz</button>")
         next_button.click(function(){
             newstatus={
                 "start":news["start"],
@@ -70,9 +71,30 @@ function gotoquiz(newstatus){
 
 function updateprogress(pvalue){
     updatedistance(pvalue)
-    $( "#progressbar" ).progressbar({
-        value: pvalue
-      });
+      $( "#progressvalue1" ).animate({
+          'width':700*(pvalue/100)-5
+      },140)
+      if (pvalue!=0){
+        $({counter: previousvalue}).animate({counter: pvalue},{
+            duration: 140,
+            step :function(){
+              $( "#progressvalue1" ).text(Math.round(pvalue*3.6)+ ' KM')
+            }
+        })
+      }
+      $( "#progressvalue2" ).animate({
+        'width':700*(pvalue/100)-5
+    },140)
+    if (pvalue!=0){
+      $({counter: previousvalue}).animate({counter: pvalue},{
+          duration: 140,
+          step :function(){
+            $( "#progressvalue2" ).text(Math.round(pvalue*2.2)+ ' Miles')
+          }
+      })
+    }
+
+      previousvalue=pvalue
 }
 
 function updatedistance(pvalue){
