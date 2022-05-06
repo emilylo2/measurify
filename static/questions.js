@@ -98,7 +98,13 @@ function correct(){
     $("#message").append(new_div);
     console.log(nextquestion)
     if(nextquestion==5){
-        location.href = "/end";
+        newdata={
+            "quizscore":quiz["quizscore"],
+            "question":0
+        }
+        answer(newdata)
+        console.log("why")
+        location.href = "/dragDrop";
     }
     
 }
@@ -139,6 +145,7 @@ function incorrect(){
             "question":0
         }
         answer(newdata)
+        console.log("why")
         location.href = "/dragDrop";
     }
 }

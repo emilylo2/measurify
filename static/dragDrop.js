@@ -79,6 +79,7 @@ function makeDrop(id){
 }
 
 function submit(correct, wrong){
+    $(".next").empty()
     $.each(correct, function(index, value){
         console.log("there are correct " + value)
         let id = "r" +value
@@ -98,9 +99,9 @@ function submit(correct, wrong){
 
 
     new_button.click(function(){
-        taketo(nextquestion.toString())
+        location.href = "/end";
     })
-    $(".submit").append(new_button)
+    $(".next").append(new_button)
 
 }
 
