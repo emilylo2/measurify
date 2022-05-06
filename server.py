@@ -114,7 +114,16 @@ def end():
     return render_template('end.html', quizs=quizs)  
 
 
- 
+@app.route('/dragDrop')
+def dragDrop():
+    global quizscore
+    global quest
+    quizs={
+        "quizscore":quizscore,
+        "question": quest
+    }
+    return render_template('dragDrop.html', quizs=quizs) 
+
 
 @app.route('/quiz/<id>')
 def quiz_question(id=None):

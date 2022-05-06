@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script>
+    let quiz={{quizs|tojson}}
+</script>
+<script src="../static/dragDrop.js"></script>
+<div class="Container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="row">
+                <div class="row h3">Drag the equivilant measurments</div>
+            </div>  
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="row non">Drag from here... </div>
+                    <div class="names drag">
+                       
+                    </div>
+                </div>
+    
+                <div class="col-md-1"></div>
+    
+                <div class="col-md-5">
+                    <div class="row ppc">To here</div>
+                    <div class="row drop" id="r1">
+                        <div class="col-md-8 drop1">
+                           
+                        </div>
+                        <div class="col-md-3" id="answer1">3.2 Feet</div>
+                    </div>
+                    
+                    <div class="row drop" id="r2">
+                        <div class="col-md-8 drop2">
+                            
+                        </div>
+                        <div class="col-md-3" id="answer2">1.6 Kilometers</div>
+                    </div>
+
+                    <div class="row drop" id="r3">
+                        <div class="col-md-8 drop3">
+                            
+                        </div>
+                        <div class="col-md-3" id="answer3">2.2 Pounds</div>
+                    </div>
+                    <div class="ppcNames"></div>
+                </div>
+            </div> 
+            <div class="row submit">
+                <button class='button-6 '>Submit</button>
+            </div> 
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -8,7 +8,7 @@ let item = [
 let feet = [
     "Foot measurement",
 ]
-
+let temp=1
 let height=[]
 const total=7
 let counter=0
@@ -101,6 +101,7 @@ function makeheight(height){
 
     $.each(height,function(index,value){
         spt=value.split("")
+        console.log("this" + spt[0])
         meterv=parseInt(spt[0])*1.8
         console.log(meterv)
         value1=meterv+" Kilograms"
@@ -214,12 +215,8 @@ $(document).ready(function(){
             counter=counter+1
             if (counter<=total){
                 let strcounter
-                if(counter==1){
-                    strcounter="1 Pound"
-                }
-                else{
-                    strcounter=counter.toString()+" Pounds"
-                }
+                let num = counter
+                strcounter=num.toString()+" Pounds"
                 height.unshift(strcounter)
                 makeheight(height)
             }

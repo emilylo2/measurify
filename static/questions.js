@@ -139,7 +139,7 @@ function incorrect(){
             "question":0
         }
         answer(newdata)
-        location.href = "/end";
+        location.href = "/dragDrop";
     }
 }
 
