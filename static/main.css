@@ -36,28 +36,30 @@
 .correct{
     background-color: lightblue;
     padding: 0.5% 0.5%;
-    margin-top: 0.5%;
     margin-left: 10px;
+    margin-bottom: 5px;
     border-radius: 5px;
     color: #3d23b3;
     font-weight: bold;
     border-style: solid;
-    height: 50px;
-    width: 400px;
+    height: 40px;
+    width: 53.5vw;
+    text-align: center;
     border-width: 1px;
 }
 
 .incorrect{
     background-color: rgb(245, 97, 102);
     padding: 0.5% 0.5%;
-    margin-top: 0.5%;
     margin-left: 10px;
+    margin-bottom: 5px;
     border-radius: 5px;
     color: #550505;
     font-weight: bold;
     border-style: solid;
-    height: 50px;
-    width: 400px;
+    height: 40px;
+    width: 53.5vw;
+    text-align: center;
     border-width: 1px;
 }
 
@@ -97,9 +99,8 @@
     margin-left: 50px;
 }
 .dimage{
-    padding-bottom: 20px;
-    border-radius: 15%;
-    width: 300px;
+    border-radius: 15px;
+    width: 400px;
     height: 330px;
 }
 .leftmarg{
@@ -273,15 +274,20 @@
   body{
     background-color: transparent !important;
   }
-  html{
-    background-image: linear-gradient( rgb(214, 237, 245), rgb(255, 255, 255));
-    height:max-content;
-    background-repeat: no-repeat;
-  }
+
   .h2{
-      margin-top: 30px;
-      margin-bottom: 50px !important;
+      margin-top: 10px;
+      margin-bottom: 10px !important;
       color: #3d23b3 !important;
+  }
+  .h3{
+    margin-top: 10px;
+    margin-bottom: 10px !important;
+    color: #3d23b3 !important;
+    text-align: center;
+    }
+  .h5{
+    color: #3d23b3 !important;
   }
   img{
       border-radius: 5%;
@@ -335,10 +341,12 @@ textarea::-webkit-scrollbar-thumb{
     font-weight: bold;
     font-size: medium;
     padding: 5px 10px;
-    background-color: lightblue;
+    background-color: rgb(55, 55, 59);
     border-style: solid;
     border-width: 1px;
     border-color: gray;
+    color: white;
+    text-align: center;
 }
 .pad{
     font-weight: bold;
@@ -347,7 +355,8 @@ textarea::-webkit-scrollbar-thumb{
 .ui-draggable{
     border-radius: 5px;
     height: 66px;
-    background-color: rgb(255, 153, 153);
+    background-color: rgb(64, 24, 144);
+    color: white;
     padding-left: 5%;
 }
 .ui-droppable{
@@ -356,25 +365,26 @@ textarea::-webkit-scrollbar-thumb{
 }
 
 .ui-draggable-dragging{
-    background-color: rgb(255, 153, 153);
-    border-color: black;
+    background-color: rgb(0, 1, 60);
+    border-color: rgb(9, 5, 84);
+    color: white;
     border-style: solid;
     z-index:99999;
 }
 .ui-state-highlight{
-    background-color: rgb(94, 116, 225);
+    background-color: rgb(134, 134, 134);
     color: black;
 }
 
 
 .ui-no-colour{
-    background-color: rgb(255, 153, 153);
+    background-color: rgb(44, 7, 103);
 }
 .ui-no-colourKG{
     background-color: rgb(161, 153, 255);
 }
 .ui-droppable-hover {
-    background: rgb(130, 119, 255);
+    background: rgb(123, 123, 123);
     color: black;
 }
 
@@ -382,27 +392,27 @@ textarea::-webkit-scrollbar-thumb{
     background-color: rgb(161, 153, 255);
 }
 .ui-draggable:hover{
-    background-color: rgb(255, 153, 153);
+    background-color: rgb(16, 2, 111);
 }
 .ui-state-highlight1{
-    background-color: rgb(205, 213, 255);
+    background-color: rgb(196, 196, 228);
 }
 .ui-state-highlight1KG{
     background-color: rgb(167, 222, 223);
 }
 #progressbar.ui-progressbar-value{
-    background: #503dae;
-    border: #1f1841 solid 10px;
+    background: #2a2a2a;
+    border-radius: 5px;
     margin-left: -1px;
 }
 .ui-progressbar{
     margin-top: 2px;
+    border-radius: 5px;
     height: 20px;
-    border: #1f1841 solid 2px;
 }
 .ui-progressbar-value{
-    background: #1f1841;
-    border: #1f1841 solid 10px;
+    background: #2a2a2a;
+    border-radius: 5px;
     margin-left: -1px;
 }
 
@@ -427,7 +437,7 @@ textarea::-webkit-scrollbar-thumb{
     font-weight: bold;
 }
 .leftCol{
-    margin-top: 270px;
+    margin-top: 362px;
 }
 .brick{
     width: 50%;
@@ -458,10 +468,10 @@ textarea::-webkit-scrollbar-thumb{
     font-weight: bold;
 }
 .progrepclass{
-    color: #3d23b3; font-weight: bold; margin-left: 10%;
+    color: #2e2e2e; font-weight: bold; margin-left: 10%;
 }
 #prog{
-    border: lightblue solid 3px !important; 
+    border: 0px; 
 }
 .spceCorrection{
     margin-top: -50px;
@@ -520,4 +530,60 @@ textarea::-webkit-scrollbar-thumb{
     border-width: 1px;
     height: 260px;
 }
+.iframe{
+    border-radius: 5px;
+}
 
+.nextbutton {
+    width: 190px;
+    align-items: center;
+    background-color: #363636;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    height: 40px;
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: white;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin: 10px;
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+  }
+  
+  .nextbutton:hover,
+  .nextbutton:focus {
+    border: #000000 1px;
+    color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    background-color: rgb(160, 160, 160);
+  }
+  
+  .nextbutton:hover {
+    transform: translateY(-1px);
+  }
+  
+  .nextbutton:active {
+    background-color: rgb(84, 84, 84);
+    border-color: #000000;
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+    color: #ffffff;
+    transform: translateY(0);
+  }
+
+  .dropdown-item:hover{
+    transform: translateY(-1px);
+    background-color: #777777;
+    color: white;
+    border-radius: 5px;
+  }

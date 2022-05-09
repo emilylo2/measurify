@@ -9,18 +9,20 @@
 <div class="Container">
     <div class="row">
         <div class="col-md-12 col-sm-12">
-            <div class="row">
-                <div class="row h3">{{detail.question}}</div>
+            <div class="row" style="place-content: center;">
+                <div class="row h3" >{{detail.question}}</div>
             </div>
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6 col-sm-12">
-                    <img class="dimage" src={{detail.imglink}}>
+                    <img class="dimage" src={{detail.imglink}} alt={{detail.alt}}>
                 </div>
-                <div class="col-md-2" id="score">{{quizs.quizscore}}/4</div>
+                <div class="col-md-2 h3" style="margin-top: 10%;"><span id="quizscoreup">{{quizs.quizscore}}</span> <span style="color: rgb(63, 63, 63);">out of 4</span></div>
             </div>       
         </div>
-        <div class="col-md-12 col-sm-12">
+    </div>
+    <div class="row">
+        <div style="margin-left: 7%;">
             <div class="row" id="options"> 
             </div>
             <div class="row" id="message"> 

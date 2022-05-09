@@ -6,32 +6,39 @@
     let quiz={{quizs|tojson}}
 </script>
 <script src="../static/end.js"></script>
-<div class="Container headtext">
-    <div class="h2 row center-row">
-        You scored {{quizs.quizscore}} /4 on the quiz!
-    </div>
-    <div class="row center-row">
-        Review material or take the quiz again!
-    </div>
-    <div class="row center-row">
-        <div class="col-md-2"></div>
-        <div class="col-md-4 center-row">
-            <div class="sub-label">
-                Learn Conversions
-            </div>
-            <button class="button-6" id="learnall">Learn All</button>
-            <button class="button-6" id="height">Height</button>
-            <button class="button-6" id="weight">Weight</button>
-            <button class="button-6" id="distance">Distance</button>
-        </div>
-        <div class="col-md-4">
-            <div class="sub-label">
-                Test Your Knowledge
-            </div>
-            <button class="button-6" id="quizbutton">Quiz</button>
-        </div>
-    </div>
 
+<div class="row">
+    <div class="h2 center-row">
+        You scored {{quizs.quizscore}}/4 on the quiz!
+    </div>
 </div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="row center-row">
+            <img class="title-pic" src="https://wallpaperaccess.com/full/1564374.jpg" alt="An image of Calculator">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="row" >
+            <div class="col-md-6">
+                <div class="h5">
+                    Review material
+                </div>
+                <button class="nextbutton" id="learnall">Learn All</button>
+                <button class="button-6" id="height">Height</button>
+                <button class="button-6" id="weight">Weight</button>
+                <button class="button-6" id="distance">Distance</button>
+            </div>
+            <div class="col-md-6">
+                <div class="h5">
+                    Take the quiz again!
+                </div>
+                <button class="nextbutton" id="quizbutton">Quiz</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}

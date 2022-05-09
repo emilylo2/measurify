@@ -17,14 +17,15 @@ quest=0
 quiz = [
     {
         "id": "1",
-        "question": "If Micheal Jordan was 6.6 Feet tall, what was his height in meters?",
+        "question": "If Micheal Jordan was 6.6 Feet tall, what would be his height in meters?",
         "imglink": "https://s.yimg.com/ny/api/res/1.2/TGNfajFSZVO2aKd_NxDFJw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQ1MA--/https://s.yimg.com/uu/api/res/1.2/4kyJgbRwvypORBkUJIZZ7Q--~B/aD05MDA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/hoops_hype_usa_today_sports_articles_974/43a74075a8f8f00a8554ef3b42f7c1c1",
         "op1": "1.2",
         "op2": "1.8",
         "op3": "2",
         "op4": "2.3",
         "correct": "2",
-        "topic":"height"
+        "topic":"height",
+        "alt":"An image of Micheal Jordan"
     },
     {
         "id": "2",
@@ -35,7 +36,8 @@ quiz = [
         "op3": "190,000",
         "op4": "320,000",
         "correct":"238,900",
-        "topic": "distance"
+        "topic": "distance",
+        "alt":"An image of Earth and Moon"
     },
     {
         "id": "3",
@@ -46,7 +48,8 @@ quiz = [
         "op3": "100lbs",
         "op4": "100KG",
         "correct": "900lbs",
-        "topic": "weight"
+        "topic": "weight",
+        "alt":"An image of Polar Bear"
     },
     {
         "id": "4",
@@ -57,7 +60,8 @@ quiz = [
         "op3": "40",
         "op4": "9",
         "correct": "15",
-        "topic": "weight"
+        "topic": "weight",
+        "alt":"An image of Television"
     }
 ]
 

@@ -5,8 +5,8 @@ let item = [
         "weight": "4"
     }
 ]
-let feet = [
-    "Foot measurement",
+let weight = [
+    "Pound measurement",
 ]
 let temp=1
 let height=[]
@@ -15,9 +15,10 @@ let counter=0
 function makeitem(item){
     $("#item").empty()
     $("#item_label").html("<span class='pad'>Drag the brick from here</span>")
-    $.each(item, function(index,value){
+    $.each(weight, function(index,value){
         let new_div = $("<div>")
         $(new_div).addClass("border")
+        $(new_div).html(value)
         $(new_div).draggable({
             cursor:"move",
             revert: true,
@@ -44,7 +45,8 @@ function makeitem(item){
 function heightcalcultor(totalheight){
     $("#heightcalculator").empty()
     if (totalheight!=0){
-        totalheight*=4;
+        totalheight+=1;
+        totalheight-=1
         totalkg=totalheight*0.45;
         caltext=totalheight+" Pounds= "+totalkg.toString()+" Kg"
         let new_span = $("<span>")
@@ -62,7 +64,7 @@ function makeheight(height){
 
     $("#meterheight").empty()
     $("#blankheight1").html("")
-    $("#height_label1").html("<span class='pad'>Height in Meters</span>")
+    $("#height_label1").html("<span class='pad'>Weight in Kilograms</span>")
     $("#blankdiv1").remove()
 
     $.each(height,function(index,value){
@@ -102,7 +104,7 @@ function makeheight(height){
     $.each(height,function(index,value){
         spt=value.split("")
         console.log("this" + spt[0])
-        meterv=parseInt(spt[0])*1.8
+        meterv=parseInt(spt[0])*0.45
         console.log(meterv)
         value1=meterv+" Kilograms"
         let new_div1 = $("<div>")
@@ -156,7 +158,8 @@ function makeprogressbar(news){
         $("#prog").progressbar({
             value: news["progress"]
         });
-        let next_button=$("<button id='nextpage' class='button-6'>Next</button>")
+        let next_button=$("<button id='nextpage' class='nextbutton'>Next</button>")
+        //let next_button=$("<div style='cursor: pointer'><img src='https://www.downloadclipart.net/large/10802-icon-next-blue-light-braun-design.png' style='width:80px;height:80px'></div>")
         next_button.click(function(){
             newstatus={
                 "start":news["start"],

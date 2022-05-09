@@ -155,7 +155,9 @@ function makeprogressbar(news){
             value: news["progress"]
         });
 
-        let next_button=$("<button id='nextpage' class='button-6'>Next</button>")
+        let next_button=$("<button id='nextpage' class='nextbutton'>Next</button>")
+        //let next_button=$("<div style='cursor: pointer'><img src='https://www.downloadclipart.net/large/10802-icon-next-blue-light-braun-design.png' style='width:80px;height:80px'></div>")
+        //let next_button=$("<img src='https://www.downloadclipart.net/large/10802-icon-next-blue-light-braun-design.png' style='width:60px;height:60px'>")
         next_button.click(function(){
             newstatus={
                 "start":news["start"],

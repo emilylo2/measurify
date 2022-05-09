@@ -32,13 +32,14 @@ function makeprogressbar(news){
         $("#prog").progressbar({
             value: news["progress"]
         });
-        let next_button=$("<button id='nextpage' class='button-6'>Take Quiz</button>")
+        let next_button=$("<button id='nextpage' class='nextbutton'>Take Quiz</button>")
         next_button.click(function(){
-            newstatus={
-                "start":news["start"],
-                "progress":news["progress"]
+            let quizscore={
+                "quizscore":0,
+                "question":0
             }
-            gotoquiz(newstatus)
+            console.log(quizscore)
+            newquiz(quizscore)
         })
         $("#next").append(next_button)
     } else {
@@ -47,19 +48,20 @@ function makeprogressbar(news){
     }
 }
 
-function gotoquiz(newstatus){
-    console.log(newstatus)
+function newquiz(newdata){
+    console.log(newdata)
     $.ajax({
         type: "POST",
-        url: "/learn",                
+        url: "/answer",                
         dataType : "json",
         contentType: "application/json; charset=utf-8",
-        data : JSON.stringify(newstatus),
+        data : JSON.stringify(newdata),
         success: function(result){
-            location.href = '/quiz/1';
-            newstatus=result
+            quiz=result
+            console.log('/quiz/'+result["quizs"]["question"])
+            location.href = '/quiz/'+result["quizs"]["question"]
+            $("#score").html((quiz["quizs"]["quizscore"]).toString()+"/4")
         },
-    
         error: function(request, status, error){
             console.log("Error");
             console.log(request)

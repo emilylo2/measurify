@@ -5,7 +5,8 @@ $(document).ready(function(){
 })
 
 function createoptions(){
-    let new_button = $("<button class='button-6'></button>")
+    disableoptions(false)
+    let new_button = $("<button class='button-6' id='op1'></button>")
     new_button.html(details["op1"])
     new_button.click(function(){
         if (checkcorrect(new_button.html(),details["correct"])==true){
@@ -17,7 +18,7 @@ function createoptions(){
         }
     })
     
-    let new_button1 = $("<button class='button-6'></button>")
+    let new_button1 = $("<button class='button-6' id='op2'></button>")
     new_button1.html(details["op2"])
     new_button1.click(function(){
         if (checkcorrect(new_button1.html(),details["correct"])==true){
@@ -29,7 +30,7 @@ function createoptions(){
         }
     })
 
-    let new_button2 = $("<button class='button-6'></button>")
+    let new_button2 = $("<button class='button-6' id='op3'></button>")
     new_button2.html(details["op3"])
     new_button2.click(function(){
         if (checkcorrect(new_button2.html(),details["correct"])==true){
@@ -41,7 +42,7 @@ function createoptions(){
         }
     })
 
-    let new_button3 = $("<button class='button-6'></button>")
+    let new_button3 = $("<button class='button-6' id='op4'></button>")
     new_button3.html(details["op4"])
     new_button3.click(function(){
         if (checkcorrect(new_button3.html(),details["correct"])==true){
@@ -69,7 +70,15 @@ function checkcorrect(op,ans){
     
 }
 
+function disableoptions(op){
+    $("#op1").prop('disabled', op)
+    $("#op2").prop('disabled', op)
+    $("#op3").prop('disabled', op)
+    $("#op4").prop('disabled', op)
+}
+
 function correct(){
+    disableoptions(true)
     $("#message1").remove()
     $(".review").empty()
     newscore=quiz["quizscore"]+1
@@ -84,7 +93,7 @@ function correct(){
     let new_div1=$("<div class='correct'>You have the right answer</div>");
 
     nextquestion=parseInt(details["id"])+1;
-    let new_button=$("<button class='button-6'>Next Question</button>")
+    let new_button=$("<button class='nextbutton'>Next Question</button>")
 
 
     new_button.click(function(){
@@ -98,18 +107,18 @@ function correct(){
     $("#message").append(new_div);
     console.log(nextquestion)
     if(nextquestion==5){
-        newdata={
-            "quizscore":quiz["quizscore"],
-            "question":0
-        }
         answer(newdata)
         console.log("why")
-        location.href = "/dragDrop";
+        new_button.html("End Quiz")
+        new_button.click(function(){
+            location.href = "/end";
+        })
     }
     
 }
 
 function incorrect(){
+    disableoptions(true)
     $("#message1").remove()
     $(".review").empty()
     let review_btn = $("<button id='review' class='button-6'>Review</button>")
@@ -124,7 +133,7 @@ function incorrect(){
 
     nextquestion=parseInt(details["id"])+1;
 
-    let new_button=$("<button class='button-6'>Next Question</button>")
+    let new_button=$("<button class='nextbutton'>Next Question</button>")
 
     new_button.click(function(){
         taketo(nextquestion.toString())
@@ -145,8 +154,10 @@ function incorrect(){
             "question":0
         }
         answer(newdata)
-        console.log("why")
-        location.href = "/dragDrop";
+        new_button.html("End Quiz")
+        new_button.click(function(){
+            location.href = "/end";
+        })
     }
 }
 
@@ -176,7 +187,7 @@ function answer(newdata){
         data : JSON.stringify(newdata),
         success: function(result){
             quiz=result
-            $("#score").html((quiz["quizs"]["quizscore"]).toString()+"/4")
+            $("#quizscoreup").html((quiz["quizs"]["quizscore"]).toString())
         },
         error: function(request, status, error){
             console.log("Error");
